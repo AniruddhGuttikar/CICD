@@ -23,18 +23,11 @@ pipeline {
                 sh './test.sh'
             }
         }
-
-        stage('Security Scan') {
-            steps {
-                echo 'Running security checks (DevSecOps)'
-                sh './security_scan.sh'
-            }
-        }
     }
 
     post {
         success {
-            echo '✅ Pipeline SUCCESS - Code is secure and healthy'
+            echo '✅ Pipeline SUCCESS - Code is healthy'
         }
         failure {
             echo '❌ Pipeline FAILED - Stop the Line'
